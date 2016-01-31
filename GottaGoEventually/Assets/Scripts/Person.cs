@@ -6,10 +6,11 @@ public class Person : MonoBehaviour {
     public Person front;
     public Person back;
 
+    public GameObject spriteObject;
+
     // time it takes in seconds after the one
     // ahead of them starts moving to move themselves
     public float movementSpeed = 0.4f;
-
     public bool isMoving;
 
     private float attentionTime;
@@ -36,8 +37,12 @@ public class Person : MonoBehaviour {
                 MoveWithSpace(QueueManager.singleton.counter.transform.position);
             }
         }
-        
-	}
+        else
+        {
+
+            ShuffleSprite();
+        }
+    }
 
     void MoveWithSpace(Vector2 otherPos)
     {
@@ -53,6 +58,12 @@ public class Person : MonoBehaviour {
     public void StartMoving()
     {
         StartCoroutine(WaitToMove());
+    }
+
+    //have person shuffle left and right a bit
+    void ShuffleSprite()
+    {
+        spriteObject.transform.localPosition = new Vector2(Mathf.PerlinNoise(Time.timeSinceLevelLoad, transform.position.x + transform.position.y), transform.position.y) * 0.025f;
     }
 
     IEnumerator WaitToMove()
