@@ -12,6 +12,7 @@ public class Person : MonoBehaviour {
     // ahead of them starts moving to move themselves
     public bool isMoving;
 
+    private bool hasOrdered = false;
     private float movementSpeed = 0.4f;
     private float orderTime;
 
@@ -20,17 +21,15 @@ public class Person : MonoBehaviour {
     // Use this for initialization
     virtual protected void Awake() {
         isMoving = false;
-        attentionTime = Random.Range(0.2f, 1.2f);
+        attentionTime = Random.Range(1.0f, 2.2f);
         orderTime = Random.Range(2.0f, 6.5f);
         //orderTime = Random.Range(20f, 65f);
     }
 
     // Update is called once per frame
     virtual protected void Update() {
-        if (isMoving)
+        if (!hasOrdered && !GetComponent<Player>())
         {
-            transform.position = (Vector2)transform.position + Vector2.right * movementSpeed * Time.deltaTime;
-
             if (front)
             {
                 MoveWithSpace(front.transform.position);
@@ -40,20 +39,17 @@ public class Person : MonoBehaviour {
             {
                 MoveWithSpace(QueueManager.singleton.counter.transform.position);
             }
-        }
-        else
-        {
+
             // order the food if nobody in front
             if (!front && ((Vector2)QueueManager.singleton.counter.transform.position - (Vector2)transform.position).magnitude <= QueueManager.singleton.spacing)
             {
                 StartCoroutine(OrderFood());
             }
-            else if (!GetComponent<Player>())
+            else
             {
-                isMoving = true;
+                StartMoving();
+                ShuffleSprite();
             }
-
-            ShuffleSprite();
         }
     }
 
@@ -62,8 +58,16 @@ public class Person : MonoBehaviour {
         float dist = (otherPos - (Vector2)transform.position).magnitude;
         if (dist < QueueManager.singleton.spacing)
         {
-            transform.position = otherPos - Vector2.right * QueueManager.singleton.spacing;
+            //transform.position = otherPos - Vector2.right * QueueManager.singleton.spacing;
             isMoving = false;
+        }
+        else if (!isMoving)
+        {
+            StartMoving();
+        }
+        else
+        {
+            transform.position = (Vector2)transform.position + Vector2.right * movementSpeed * Time.deltaTime;
         }
     }
 
@@ -81,9 +85,19 @@ public class Person : MonoBehaviour {
     IEnumerator OrderFood()
     {
         SpriteRenderer s = spriteObject.GetComponent<SpriteRenderer>();
-        s.color = Color.green;
+        s.color = Color.red;
         yield return new WaitForSeconds(orderTime);
-        Destroy(gameObject);
+        
+        Destroy(gameObject, 10);
+        back.front = null;
+        hasOrdered = true;
+        yield return null;
+        s.sortingOrder = 1;
+        while (true)
+        {
+            transform.position = (Vector2)transform.position + Vector2.down * movementSpeed/12.0f * Time.deltaTime;
+            yield return null;
+        }
     }
 
     IEnumerator WaitToMove()
