@@ -13,7 +13,7 @@ public class Person : MonoBehaviour {
     public bool isMoving;
 
     private bool hasOrdered = false;
-    private float movementSpeed = 0.4f;
+    private float movementSpeed = 0.8f;
     private float orderTime;
 
     private float attentionTime;
@@ -82,17 +82,17 @@ public class Person : MonoBehaviour {
     IEnumerator OrderFood()
     {
         SpriteRenderer s = spriteObject.GetComponent<SpriteRenderer>();
+        hasOrdered = true;
+        QueueManager.singleton.SpawnNewPerson();
         s.color = Color.red;
         yield return new WaitForSeconds(orderTime);
-        
         Destroy(gameObject, 10);
-        back.front = null;
-        hasOrdered = true;
         yield return null;
+        back.front = null;
         s.sortingOrder = 1;
         while (true)
         {
-            transform.position = (Vector2)transform.position + Vector2.down * movementSpeed/12.0f * Time.deltaTime;
+            transform.position = (Vector2)transform.position + Vector2.down * movementSpeed/2.0f * Time.deltaTime;
             yield return null;
         }
     }
