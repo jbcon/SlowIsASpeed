@@ -28,7 +28,7 @@ public class Person : MonoBehaviour {
 
     // Update is called once per frame
     virtual protected void Update() {
-        if (!hasOrdered && !GetComponent<Player>())
+        if (!hasOrdered && (!GetComponent<Player>() || isMoving))
         {
             if (front)
             {
@@ -47,7 +47,7 @@ public class Person : MonoBehaviour {
             }
             else
             {
-                StartMoving();
+                //StartMoving();
                 ShuffleSprite();
             }
         }
@@ -61,10 +61,7 @@ public class Person : MonoBehaviour {
             //transform.position = otherPos - Vector2.right * QueueManager.singleton.spacing;
             isMoving = false;
         }
-        else if (!isMoving)
-        {
-            StartMoving();
-        }
+
         else
         {
             transform.position = (Vector2)transform.position + Vector2.right * movementSpeed * Time.deltaTime;
