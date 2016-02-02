@@ -24,12 +24,16 @@ public class GameManager : ScriptableObject
         private set { _instance = value; }
     }
 
+    public bool phoneActive = false;
+
+    public bool phoneDown = true;
+
 	void MyAwake ()
     {
         //planeCamera = Resources.Load<Camera>("PlaneCamera");
         //planeCamera = Instantiate<Camera>(planeCamera);
         //planeCamera.transform.position = new Vector3(0f,0f,-10f);
 
-        planeCamera = GameObject.Find("PlaneObject").GetComponent<Camera>();
+        //planeCamera = GameObject.Find("PlaneObject").GetComponent<Camera>();
 	}
 }

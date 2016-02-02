@@ -1,9 +1,22 @@
 fileFormatVersion: 2
 guid: 5dc7e58ef500879479ab4da7397037b0
-timeCreated: 1454389102
+timeCreated: 1454401491
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Person1LeanIdle_SS_0
+    21300002: Person1LeanIdle_SS_1
+    21300004: Person1LeanIdle_SS_2
+    21300006: Person1LeanIdle_SS_3
+    21300008: Person1LeanIdle_SS_4
+    21300010: Person1LeanIdle_SS_5
+    21300012: Person1LeanIdle_SS_6
+    21300014: Person1LeanIdle_SS_7
+    21300016: Person1LeanIdle_SS_8
+    21300018: Person1LeanIdle_SS_9
+    21300020: Person1LeanIdle_SS_10
+    21300022: Person1LeanIdle_SS_11
+    21300024: Person1LeanIdle_SS_12
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -17,7 +30,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.25
+    heightScale: .25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -30,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,19 +51,148 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
-    outline: []
+    sprites:
+    - name: Person1LeanIdle_SS_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1
+        width: 178
+        height: 709
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_1
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1
+        width: 172
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_2
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 0
+        width: 169
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_3
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 0
+        width: 169
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_4
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1
+        width: 174
+        height: 704
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_5
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 0
+        width: 169
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_6
+      rect:
+        serializedVersion: 2
+        x: 2279
+        y: 0
+        width: 169
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_7
+      rect:
+        serializedVersion: 2
+        x: 2661
+        y: 0
+        width: 173
+        height: 689
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_8
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 0
+        width: 189
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_9
+      rect:
+        serializedVersion: 2
+        x: 3377
+        y: 0
+        width: 189
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_10
+      rect:
+        serializedVersion: 2
+        x: 3753
+        y: 0
+        width: 171
+        height: 689
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_11
+      rect:
+        serializedVersion: 2
+        x: 4100
+        y: 0
+        width: 169
+        height: 700
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Person1LeanIdle_SS_12
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 0
+        width: 170
+        height: 705
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
