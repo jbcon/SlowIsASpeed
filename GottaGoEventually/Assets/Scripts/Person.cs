@@ -12,8 +12,10 @@ public class Person : MonoBehaviour {
     // ahead of them starts moving to move themselves
     public bool isMoving;
 
+    private Animator animator;
+
     private bool hasOrdered = false;
-    private float movementSpeed = 0.8f;
+    private float movementSpeed = 0.7f;
     private float orderTime;
 
     private float attentionTime;
@@ -24,6 +26,7 @@ public class Person : MonoBehaviour {
         attentionTime = Random.Range(1.0f, 2.2f);
         orderTime = Random.Range(2.0f, 6.5f);
         //orderTime = Random.Range(20f, 65f);
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -51,6 +54,13 @@ public class Person : MonoBehaviour {
                 ShuffleSprite();
             }
         }
+
+        if (isMoving) {
+            animator.SetBool("Walking", true);
+        }
+        else {
+            animator.SetBool("Walking", false);
+        }
     }
 
     void MoveWithSpace(Vector2 otherPos)
@@ -65,6 +75,7 @@ public class Person : MonoBehaviour {
         else
         {
             transform.position = (Vector2)transform.position + Vector2.right * movementSpeed * Time.deltaTime;
+            isMoving = true;
         }
     }
 
@@ -87,7 +98,7 @@ public class Person : MonoBehaviour {
         s.color = Color.red;
         yield return new WaitForSeconds(orderTime);
         Destroy(gameObject, 10);
-        yield return null;
+        //yield return null;
         back.front = null;
         s.sortingOrder = 1;
         while (true)

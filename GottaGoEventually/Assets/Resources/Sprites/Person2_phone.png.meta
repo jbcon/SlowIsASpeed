@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: cba0f51928227fe4cb3622310381b13f
-timeCreated: 1454394375
-licenseType: Free
+timeCreated: 1454441667
+licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Person2_phone_0
+    21300002: Person2_phone_1
+    21300004: Person2_phone_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +41,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +52,111 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Person2_phone_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 364
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 91, y: 40.5}
+        - {x: 91, y: 84.5}
+        - {x: 62, y: 109.5}
+        - {x: 62, y: 178.5}
+        - {x: 83, y: 250.5}
+        - {x: 53, y: 281.5}
+        - {x: -1, y: 281.5}
+        - {x: -61, y: 256.5}
+        - {x: -69, y: 157.5}
+        - {x: -69, y: 136.5}
+        - {x: -56, y: 137.5}
+        - {x: -50, y: 142.5}
+        - {x: -47, y: 145.5}
+        - {x: -48, y: 144.5}
+        - {x: -50, y: 141.5}
+        - {x: -69, y: 64.5}
+        - {x: -69, y: -37.5}
+        - {x: -55, y: -116.5}
+        - {x: -53, y: -374.5}
+        - {x: -49, y: -377.5}
+        - {x: 75, y: -377.5}
+        - {x: 52, y: -202.5}
+        - {x: 41, y: -89.5}
+        - {x: 55, y: 2.5}
+    - name: Person2_phone_1
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 364
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39, y: -69.5}
+        - {x: 23, y: 27.5}
+        - {x: 84, y: 32.5}
+        - {x: 105, y: 60.5}
+        - {x: 105, y: 87.5}
+        - {x: 94, y: 98.5}
+        - {x: 82, y: 91.5}
+        - {x: 43, y: 162.5}
+        - {x: 82, y: 230.5}
+        - {x: 76, y: 254.5}
+        - {x: 50, y: 278.5}
+        - {x: -3, y: 278.5}
+        - {x: -38, y: 271.5}
+        - {x: -52, y: 243.5}
+        - {x: -61, y: 147.5}
+        - {x: -62, y: 131.5}
+        - {x: -62, y: -74.5}
+        - {x: -51, y: -127.5}
+        - {x: -57, y: -372.5}
+        - {x: -47, y: -378.5}
+        - {x: 54, y: -378.5}
+        - {x: 63, y: -358.5}
+        - {x: 8, y: -329.5}
+        - {x: 18, y: -265.5}
+    - name: Person2_phone_2
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 364
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: -216.5}
+        - {x: 35, y: -97.5}
+        - {x: 38, y: 40.5}
+        - {x: 73, y: 57.5}
+        - {x: 116, y: 92.5}
+        - {x: 122, y: 118.5}
+        - {x: 122, y: 131.5}
+        - {x: 103, y: 137.5}
+        - {x: 47, y: 107.5}
+        - {x: 92, y: 240.5}
+        - {x: 55, y: 277.5}
+        - {x: -28, y: 277.5}
+        - {x: -50, y: 263.5}
+        - {x: -65, y: 4.5}
+        - {x: -65, y: -55.5}
+        - {x: -48, y: -114.5}
+        - {x: -48, y: -317.5}
+        - {x: -60, y: -364.5}
+        - {x: -52, y: -377.5}
+        - {x: 54, y: -377.5}
+        - {x: 64, y: -374.5}
+        - {x: 37, y: -337.5}
+        - {x: 18, y: -258.5}
     outline: []
   spritePackingTag: 
   userData: 
