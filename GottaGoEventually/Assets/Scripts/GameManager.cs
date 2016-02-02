@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager
+public class GameManager : ScriptableObject
 {
     public Camera planeCamera;
 
-    private bool instantiated = false;
-    private GameManager _instance;
-    public GameManager instance
+    static private bool instantiated = false;
+    static private GameManager _instance;
+    static public GameManager instance
     {
         get
         {
@@ -16,20 +16,20 @@ public class GameManager
             else
             {
                 instantiated = true;
-                return new GameManager();
+                _instance = CreateInstance<GameManager>();
+                _instance.MyAwake();
+                return _instance;
             }
         }
         private set { _instance = value; }
     }
 
-	void Awake ()
+	void MyAwake ()
     {
-	    
-	}
-	
+        //planeCamera = Resources.Load<Camera>("PlaneCamera");
+        //planeCamera = Instantiate<Camera>(planeCamera);
+        //planeCamera.transform.position = new Vector3(0f,0f,-10f);
 
-	void Update ()
-    {
-	
+        planeCamera = GameObject.Find("PlaneObject").GetComponent<Camera>();
 	}
 }
