@@ -10,6 +10,8 @@ public class PlaneMovement : MonoBehaviour
     public float maxZRot;
     public float maxXRot;
 
+    public Camera cam;
+
     protected Vector3 ScreenToWorld(Vector3 input)
     {
         Vector3 returnVec = new Vector3();
