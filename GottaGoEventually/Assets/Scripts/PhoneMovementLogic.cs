@@ -25,7 +25,8 @@ public class PhoneMovementLogic : MonoBehaviour {
         GameManager.instance.Reset();
         QueueManager.singleton.Reset();
         audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
-        Screen.orientation = ScreenOrientation.Landscape;
+        //Screen.orientation = ScreenOrientation.Landscape;
+        
     }
 
     // Update is called once per frame
