@@ -6,6 +6,7 @@ public class GameManager : ScriptableObject
     public Camera planeCamera;
     public Player player;
     GameObject obstacleSpawner;
+    PhoneMovementLogic phone;
 
     static private bool instantiated = false;
     static private GameManager _instance;
@@ -29,6 +30,7 @@ public class GameManager : ScriptableObject
     public bool phoneActive = false;
     public bool phoneDown = true;
     public bool gameStarted = false;
+    public bool gameOver = false;
 
     public void setGameStarted()
     {
@@ -37,13 +39,26 @@ public class GameManager : ScriptableObject
         gameStarted = true;
     }
 
-    
+    public void setVictory()
+    {
+        GameObject victoryScreen = Resources.Load<GameObject>("VictoryScreen");
+        Instantiate(victoryScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        gameOver = true;
+    }
 
-	void MyAwake ()
+    public void setLoss()
+    {
+        GameObject loseScreen = Resources.Load<GameObject>("LoseScreen");
+        Instantiate(loseScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        gameOver = true;
+        phone.ActivateLowerPhone();
+    }
+
+    void MyAwake ()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
         obstacleSpawner = GameObject.Find("ObstacleSpawner");
-
+        phone = GameObject.Find("Phone").GetComponent<PhoneMovementLogic>();
         //planeCamera = Resources.Load<Camera>("PlaneCamera");
         //planeCamera = Instantiate<Camera>(planeCamera);
         //planeCamera.transform.position = new Vector3(0f,0f,-10f);

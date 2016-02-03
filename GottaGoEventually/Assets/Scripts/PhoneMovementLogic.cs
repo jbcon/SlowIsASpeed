@@ -25,21 +25,31 @@ public class PhoneMovementLogic : MonoBehaviour {
     void Update () {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            StopAllCoroutines();
-            if (!GameManager.instance.gameStarted)
+            if (!GameManager.instance.gameOver)
             {
-                StartCoroutine("SlowRaisePhone");
+                StopAllCoroutines();
+                if (!GameManager.instance.gameStarted)
+                {
+                    StartCoroutine("SlowRaisePhone");
+                }
+                else
+                {
+                    StartCoroutine("RaisePhone");
+                }
             }
             else
             {
-                StartCoroutine("RaisePhone");
+                Application.LoadLevel(Application.loadedLevelName);
             } 
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            StopAllCoroutines();
-            StartCoroutine("LowerPhone");
+            if (!GameManager.instance.gameOver)
+            {
+                StopAllCoroutines();
+                StartCoroutine("LowerPhone");
+            }
         }
     }
 
@@ -55,6 +65,12 @@ public class PhoneMovementLogic : MonoBehaviour {
             yield return null;
         }
     }*/
+
+    public void ActivateLowerPhone()
+    {
+        StopAllCoroutines();
+        StartCoroutine("LowerPhone");
+    }
 
     IEnumerator RaisePhone()
     {
@@ -98,7 +114,8 @@ public class PhoneMovementLogic : MonoBehaviour {
             if (transform.position.y < bottomLocation.y * loweredFraction)
             {
                 GameManager.instance.phoneDown = true;
-                GameManager.instance.player.isMoving = true;
+                if (GameManager.instance.gameStarted)
+                     GameManager.instance.player.isMoving = true;
             }
             if (transform.position.y < bottomLocation.y * raisedFraction)
             {

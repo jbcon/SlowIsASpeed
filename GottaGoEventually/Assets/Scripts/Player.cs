@@ -19,6 +19,7 @@ public class Player : Person {
     public void startPhone()
     {
         animator.SetBool("Phone", true);
+        animator.SetBool("Walking", false);
     }
     public void endPhone()
     {
