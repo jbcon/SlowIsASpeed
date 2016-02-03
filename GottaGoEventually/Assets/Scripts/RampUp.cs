@@ -3,8 +3,9 @@ using System.Collections;
 
 public class RampUp : MonoBehaviour
 {
-    ParticleSystem part;
+    public float emissionRampUp;
 
+    ParticleSystem part;
     int lastNum;
 
     void Start()
@@ -16,7 +17,7 @@ public class RampUp : MonoBehaviour
     {
         if (lastNum < ObstacleSpawn.obstaclesSpawned)
         {
-            part.emissionRate += 1;
+            part.emissionRate += emissionRampUp;
             part.startSpeed += .1f;
             lastNum = ObstacleSpawn.obstaclesSpawned;
         }
