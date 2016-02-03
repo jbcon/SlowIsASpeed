@@ -102,7 +102,7 @@ public class Person : MonoBehaviour {
     {
         if (GetComponent<Player>())
         {
-            setVictory();
+            GameManager.instance.setVictory();
         }
         SpriteRenderer s = spriteObject.GetComponent<SpriteRenderer>();
         hasOrdered = true;
@@ -130,9 +130,4 @@ public class Person : MonoBehaviour {
         }
     }
 
-    public void setVictory()
-    {
-        GameObject victoryScreen = Resources.Load<GameObject>("VictoryScreen");
-        Instantiate(victoryScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
-    }
 }

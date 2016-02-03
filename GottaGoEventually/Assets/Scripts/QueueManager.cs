@@ -56,6 +56,7 @@ public class QueueManager : MonoBehaviour {
 
     public void SpawnNewPerson()
     {
+        print(spawn);
         Person p = spawn.SpawnPersonBehind(backOfLine);
         backOfLine = p;
     }
