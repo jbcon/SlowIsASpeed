@@ -11,6 +11,6 @@ public class ScoreDisplay : MonoBehaviour
     }
     void Update()
     {
-        text.text = "POINTS: " + ObstacleSpawn.obstaclesSpawned * 1000;
+        text.text = "POINTS: " + ObstacleSpawn.obstaclesSpawned * 100;
     }
 }
