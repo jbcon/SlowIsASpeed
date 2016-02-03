@@ -48,8 +48,8 @@ public class GameManager : ScriptableObject
 
     public void setLoss()
     {
-        GameObject loseScreen = Resources.Load<GameObject>("LoseScreen");
-        Instantiate(loseScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        GameObject loseScreen = Resources.Load<GameObject>("GameOver");
+        Instantiate(loseScreen);//, new Vector3(52.9f, 0, 0), Quaternion.identity);
         gameOver = true;
         phone.ActivateLowerPhone();
     }
