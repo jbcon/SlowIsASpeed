@@ -10,7 +10,7 @@ public class ObstacleSpawn : MonoBehaviour
     public GameObject obstacle2;
     public GameObject obstacle3;
 
-    public float coolDown = .9f;
+    public float coolDown = 1f;
     public float LowestSpawnRate = .3f;
     
     public static int obstaclesSpawned { get; set; }
@@ -68,7 +68,7 @@ public class ObstacleSpawn : MonoBehaviour
         obstaclesSpawned++;
 
         if (coolDown > LowestSpawnRate)
-            coolDown -= .005f;
+            coolDown -= .004f;
 
         float magic = .4f;
         float randX = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
@@ -87,6 +87,6 @@ public class ObstacleSpawn : MonoBehaviour
 
 
         obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
-        obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 10f;
+        obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 12f;
     }
 }
