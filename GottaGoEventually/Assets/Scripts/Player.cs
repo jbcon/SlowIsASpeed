@@ -13,8 +13,10 @@ public class Player : Person {
     protected override void Update()
     {
         base.Update();
-        if (GameManager.instance.phoneDown && GameManager.instance.gameStarted)
+        if (!GameManager.instance.phoneActive && GameManager.instance.gameStarted)
             isMoving = true;
+        else if (GameManager.instance.phoneActive)
+            isMoving = false;
 
     }
 

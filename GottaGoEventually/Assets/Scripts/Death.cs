@@ -18,7 +18,7 @@ public class Death : MonoBehaviour {
         print("hittttttttt");
         if (other.gameObject.tag == "Obstacle")
         {
-            GameManager.instance.setLoss();
+            GameManager.instance.setLoss("Crash");
         }
     }
 }
