@@ -77,7 +77,7 @@ public class ObstacleSpawn : MonoBehaviour
 
 
         GameObject obs;
-        int rand = Random.Range(0, 12);
+        int rand = Random.Range(0, 16);
         if ( rand == 0)
             obs = Instantiate(obstacle2, spawnSpot, obstacle2.transform.rotation) as GameObject;
         else if (rand == 1)
