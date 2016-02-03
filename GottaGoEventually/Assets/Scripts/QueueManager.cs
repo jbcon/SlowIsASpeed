@@ -67,7 +67,10 @@ public class QueueManager : MonoBehaviour {
 	void Update () {
         if (GameManager.instance.gameStarted)
         {
-            float dist = Mathf.Abs(player.transform.position.x - player.front.transform.position.x);
+            float dist = 0f;
+            if(player.front)
+                dist = Mathf.Abs(player.transform.position.x - player.front.transform.position.x);
+
             if (GameManager.instance.phoneActive && dist > maxGoodDistance)
             {
                 waitingTime += Time.deltaTime;
