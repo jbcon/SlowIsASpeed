@@ -14,6 +14,7 @@ public class QueueManager : MonoBehaviour {
     // space between people
     public float maxWaitingTime = 10f;
     public float spacing = 0.3f;
+    public float maxGoodDistance = 1.0f;
     public int numberOfPeople = 8;
     private Player player;
     private float waitingTime = 0;
@@ -66,11 +67,8 @@ public class QueueManager : MonoBehaviour {
 	void Update () {
         if (GameManager.instance.gameStarted)
         {
-            if (!GameManager.instance.phoneActive)
-            {
-                waitingTime = 0;
-            }
-            else
+            float dist = player.transform.position.x - player.front.transform.position.x;
+            if (GameManager.instance.phoneActive && dist > maxGoodDistance)
             {
                 waitingTime += Time.deltaTime;
             }
