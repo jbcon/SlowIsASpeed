@@ -30,12 +30,12 @@ public class ObstacleSpawn : MonoBehaviour
         {
             for (int j = 0; j < numOfSpawners.y; j++)
             {
-                Transform spawner = Resources.Load<Transform>("Spawner");
-                spawner = Instantiate<Transform>(spawner);
-                spawner.name = "Spawner x: " + i + " y: " + j;
-                spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
+                //Transform spawner = Resources.Load<Transform>("Spawner");
+                //spawner = Instantiate<Transform>(spawner);
+                //spawner.name = "Spawner x: " + i + " y: " + j;
+                //spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
 
-                spawners.Add(spawner);
+                //spawners.Add(spawner);
                 //float xDist = i 
                 //spawner.transform = new Vector3();
             }
