@@ -23,8 +23,8 @@ public class PlaneMovement : MonoBehaviour
         //float WSHalfHeight = Screen.height / screen2Phone;
 
 
-        returnVec.x = (((input.x / Screen.width ) * widthMoveLimit * 2) - widthMoveLimit);         //offset is so 0,0 is the center of the screen
-        returnVec.y = (((input.y / Screen.height) * heightMoveLimit* 2) - heightMoveLimit);      //same tbh
+        returnVec.x = (((input.x / Screen.width ) * widthMoveLimit * 2) - widthMoveLimit)/ .6764f;         //offset is so 0,0 is the center of the screen
+        returnVec.y = (((input.y / Screen.height) * heightMoveLimit* 2) - heightMoveLimit)/ .6764f;      //same tbh
         return returnVec;
     }
 
