@@ -6,13 +6,15 @@ public class PhoneMovementLogic : MonoBehaviour {
 
     Vector3 topLocation;
     Vector3 bottomLocation;
-    public float moveSpeed = .005f;
+    public float moveSpeed = .05f;
+    public float volumeChange = .05f;
 
     public GameObject startText;
     public GameObject titleText;
 
     float loweredFraction = .75f;
     float raisedFraction = .25f;
+    AudioSource[] audioSources;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,7 @@ public class PhoneMovementLogic : MonoBehaviour {
 
         GameManager.instance.Reset();
         QueueManager.singleton.Reset();
+        audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,10 +37,12 @@ public class PhoneMovementLogic : MonoBehaviour {
                 if (!GameManager.instance.gameStarted)
                 {
                     StartCoroutine("SlowRaisePhone");
+                    StartCoroutine("SlowFadeIn");
                 }
                 else
                 {
                     StartCoroutine("RaisePhone");
+                    StartCoroutine("FadeMusicIn");
                 }
             }
             else
@@ -52,6 +57,7 @@ public class PhoneMovementLogic : MonoBehaviour {
             {
                 StopAllCoroutines();
                 StartCoroutine("LowerPhone");
+                StartCoroutine("FadeMusicOut");
             }
         }
     }
@@ -124,6 +130,36 @@ public class PhoneMovementLogic : MonoBehaviour {
             {
                 GameManager.instance.phoneActive = false;
             }
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeMusicIn()
+    {
+        while (audioSources[1].volume < 1)
+        {
+            audioSources[1].volume += volumeChange;
+            audioSources[0].volume -= volumeChange / 2;
+            yield return null;
+        }
+    }
+
+    IEnumerator SlowFadeIn()
+    {
+        while (audioSources[1].volume < 1)
+        {
+            audioSources[1].volume += volumeChange/10;
+            audioSources[0].volume -= volumeChange / 20;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeMusicOut()
+    {
+        while (audioSources[0].volume < .5f)
+        {
+            audioSources[1].volume -= volumeChange;
+            audioSources[0].volume += volumeChange / 2;
             yield return null;
         }
     }
