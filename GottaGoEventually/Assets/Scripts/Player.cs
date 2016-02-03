@@ -11,6 +11,8 @@ public class Player : Person {
     protected override void Update()
     {
         base.Update();
+        if (GameManager.instance.phoneDown)
+            isMoving = true;
     }
 
 }
