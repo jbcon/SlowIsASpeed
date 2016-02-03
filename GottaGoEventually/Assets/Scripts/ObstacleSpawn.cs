@@ -12,8 +12,10 @@ public class ObstacleSpawn : MonoBehaviour
     public GameObject obstacle;
     public List<Transform> spawners;
 
-    public float coolDown = 1f;
+    public float coolDown = .9f;
     public float LowestSpawnRate = .3f;
+    
+    public int obstaclesSpawned { get; protected set; }
     public Transform ER_PlaneCam;
 
 	void Start ()
@@ -55,17 +57,28 @@ public class ObstacleSpawn : MonoBehaviour
     {
         while (true)
         {
-            if(coolDown > LowestSpawnRate)
-                coolDown -= .01f;
-
-            float magic = .4f;
-            float randX = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
-            float randY = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
-            Vector3 spawnSpot = new Vector3(randX, randY, spawnDepth);
-            GameObject obs = Instantiate(obstacle, spawnSpot, Quaternion.identity) as GameObject;
-            obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
+            Spawn();
+            if (Random.Range(0, 2 + coolDown*2) == 0)
+                Spawn();
 
             yield return new WaitForSeconds(coolDown);
         }
+    }
+
+    void Spawn()
+    {
+        obstaclesSpawned++;
+
+        if (coolDown > LowestSpawnRate)
+            coolDown -= .01f;
+
+        float magic = .4f;
+        float randX = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
+        float randY = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
+        Vector3 spawnSpot = new Vector3(randX, randY, spawnDepth);
+
+        GameObject obs = Instantiate(obstacle, spawnSpot, Quaternion.identity) as GameObject;
+        obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
+        obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 3;
     }
 }
