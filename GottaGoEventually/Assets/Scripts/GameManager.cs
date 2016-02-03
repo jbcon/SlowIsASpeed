@@ -41,15 +41,15 @@ public class GameManager : ScriptableObject
 
     public void setVictory()
     {
-        GameObject victoryScreen = Resources.Load<GameObject>("VictoryScreen");
-        Instantiate(victoryScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        GameObject victoryScreen = Resources.Load<GameObject>("BestDamnSandwich");
+        Instantiate(victoryScreen);//, new Vector3(52.9f, 0, 0), Quaternion.identity);
         gameOver = true;
     }
 
     public void setLoss()
     {
-        GameObject loseScreen = Resources.Load<GameObject>("LoseScreen");
-        Instantiate(loseScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        GameObject loseScreen = Resources.Load<GameObject>("GameOver");
+        Instantiate(loseScreen);//, new Vector3(52.9f, 0, 0), Quaternion.identity);
         gameOver = true;
         phone.ActivateLowerPhone();
     }
@@ -65,4 +65,13 @@ public class GameManager : ScriptableObject
 
         //planeCamera = GameObject.Find("PlaneObject").GetComponent<Camera>();
 	}
+
+    public void Reset()
+    {
+        phoneActive = false;
+        phoneDown = true;
+        gameStarted = false;
+        gameOver = false;
+        MyAwake();
+    }
 }

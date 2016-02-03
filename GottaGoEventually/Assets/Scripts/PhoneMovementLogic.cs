@@ -19,6 +19,9 @@ public class PhoneMovementLogic : MonoBehaviour {
         topLocation = new Vector3(52.9f, 0f, -1f);
         bottomLocation = new Vector3(52.9f, -6.3f, -1f);
         transform.position = new Vector3(52.9f, -7f, -1f);
+
+        GameManager.instance.Reset();
+        QueueManager.singleton.Reset();
     }
 
     // Update is called once per frame
