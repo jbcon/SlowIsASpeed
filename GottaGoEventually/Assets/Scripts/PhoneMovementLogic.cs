@@ -72,7 +72,6 @@ public class PhoneMovementLogic : MonoBehaviour {
             }
             yield return null;
         }
-        Debug.Break();
     }
 
     IEnumerator SlowRaisePhone()
