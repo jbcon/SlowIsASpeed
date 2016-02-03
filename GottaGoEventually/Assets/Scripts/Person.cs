@@ -11,6 +11,7 @@ public class Person : MonoBehaviour {
     // time it takes in seconds after the one
     // ahead of them starts moving to move themselves
     public bool isMoving;
+    public float oddsOfSwaying = .1f;
 
     private Animator animator;
 
@@ -88,6 +89,12 @@ public class Person : MonoBehaviour {
     //have person shuffle left and right a bit
     void ShuffleSprite()
     {
+        //randomly go to swaying
+        float v = Random.value;
+        if (v < oddsOfSwaying) {
+            animator.SetTrigger("Sway");
+        }
+
         spriteObject.transform.localPosition = new Vector2(Mathf.PerlinNoise(Time.timeSinceLevelLoad, transform.position.x + transform.position.y), transform.position.y) * 0.025f;
     }
 
