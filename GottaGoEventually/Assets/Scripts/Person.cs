@@ -31,7 +31,7 @@ public class Person : MonoBehaviour {
 
     // Update is called once per frame
     virtual protected void Update() {
-        if (!hasOrdered && (!GetComponent<Player>() || isMoving))
+        if (GameManager.instance.gameStarted && !hasOrdered && (!GetComponent<Player>() || isMoving))
         {
             if (front)
             {
@@ -81,6 +81,7 @@ public class Person : MonoBehaviour {
 
     public void StartMoving()
     {
+
         StartCoroutine(WaitToMove());
     }
 
@@ -92,6 +93,10 @@ public class Person : MonoBehaviour {
 
     IEnumerator OrderFood()
     {
+        if (GetComponent<Player>())
+        {
+            GameManager.instance.setVictory();
+        }
         SpriteRenderer s = spriteObject.GetComponent<SpriteRenderer>();
         hasOrdered = true;
         QueueManager.singleton.SpawnNewPerson();

@@ -23,10 +23,15 @@ public class QueueManager : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         counter = GameObject.FindGameObjectWithTag("Counter");
         SpawnPeople();
+        //people[numberOfPeople - 1].StartMoving();
+        //spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<PersonSpawner>();
+    }
+
+    public void GameStart()
+    {
         people[numberOfPeople - 1].StartMoving();
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<PersonSpawner>();
     }
-
 
     void SpawnPeople()
     {

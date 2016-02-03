@@ -4,6 +4,8 @@ using System.Collections;
 public class GameManager : ScriptableObject
 {
     public Camera planeCamera;
+    public Player player;
+    public Sprite victoryScreen;
 
     static private bool instantiated = false;
     static private GameManager _instance;
@@ -25,11 +27,25 @@ public class GameManager : ScriptableObject
     }
 
     public bool phoneActive = false;
-
     public bool phoneDown = true;
+    public bool gameStarted = false;
+
+    public void setGameStarted()
+    {
+        QueueManager.singleton.GameStart();
+        gameStarted = true;
+    }
+
+    public void setVictory()
+    {
+        Instantiate(victoryScreen);
+    }
 
 	void MyAwake ()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
+
+        victoryScreen = Resources.Load<Sprite>("Sprites/VictoryScreen");
         //planeCamera = Resources.Load<Camera>("PlaneCamera");
         //planeCamera = Instantiate<Camera>(planeCamera);
         //planeCamera.transform.position = new Vector3(0f,0f,-10f);

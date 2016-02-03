@@ -6,17 +6,18 @@ public class PhoneMovementLogic : MonoBehaviour {
 
     Vector3 topLocation;
     Vector3 bottomLocation;
-    public float moveSpeed = .5f;
+    public float moveSpeed = .1f;
 
     public GameObject startText;
     public GameObject titleText;
 
-    bool firstTime = true;
+    float loweredFraction = .75f;
+    float raisedFraction = .25f;
 
 	// Use this for initialization
 	void Start () {
-        topLocation = new Vector3(49.72f, 0f, 9.95f);
-        bottomLocation = new Vector3(49.72f, -11f, 9.95f);
+        topLocation = new Vector3(52.9f, 0f, -1f);
+        bottomLocation = new Vector3(52.9f, -6.3f, -1f);
         transform.position = bottomLocation;
     }
 
@@ -25,10 +26,8 @@ public class PhoneMovementLogic : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             StopAllCoroutines();
-            if (firstTime)
+            if (!GameManager.instance.gameStarted)
             {
-                StartCoroutine("FadeOutTitle");
-                firstTime = false;
                 StartCoroutine("SlowRaisePhone");
             }
             else
@@ -44,7 +43,7 @@ public class PhoneMovementLogic : MonoBehaviour {
         }
     }
 
-    IEnumerator FadeOutTitle()
+    /*IEnumerator FadeOutTitle()
     {
         Color baseColor = startText.GetComponent<Text>().color;
         float alpha = startText.GetComponent<Text>().color.a;
@@ -55,20 +54,25 @@ public class PhoneMovementLogic : MonoBehaviour {
             titleText.GetComponent<Text>().color = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
             yield return null;
         }
-    }
+    }*/
 
     IEnumerator RaisePhone()
     {
         while(transform.position.y < topLocation.y)
         {
             transform.Translate(Vector3.forward * -1 * moveSpeed);
-            if (transform.position.y > bottomLocation.y * .75f)
+            if (transform.position.y > bottomLocation.y * loweredFraction)
             {
                 GameManager.instance.phoneDown = false;
+                GameManager.instance.player.isMoving = false;
+            }
+            if (transform.position.y > bottomLocation.y * raisedFraction)
+            {
+                GameManager.instance.phoneActive = true;
             }
             yield return null;
         }
-        GameManager.instance.phoneActive = true;
+        Debug.Break();
     }
 
     IEnumerator SlowRaisePhone()
@@ -78,18 +82,25 @@ public class PhoneMovementLogic : MonoBehaviour {
             transform.Translate(Vector3.forward * -1 * moveSpeed/5);
             yield return null;
         }
+        titleText.SetActive(false);
+        startText.SetActive(false);
         GameManager.instance.phoneActive = true;
+        GameManager.instance.setGameStarted();
     }
 
     IEnumerator LowerPhone()
     {
-        GameManager.instance.phoneActive = false;
         while (transform.position.y > bottomLocation.y)
         {
             transform.Translate(Vector3.forward * moveSpeed);
-            if (transform.position.y < bottomLocation.y * .75f)
+            if (transform.position.y < bottomLocation.y * loweredFraction)
             {
                 GameManager.instance.phoneDown = true;
+                GameManager.instance.player.isMoving = true;
+            }
+            if (transform.position.y < bottomLocation.y * raisedFraction)
+            {
+                GameManager.instance.phoneActive = false;
             }
             yield return null;
         }
