@@ -13,7 +13,7 @@ public class Person : MonoBehaviour {
     public bool isMoving;
     public float oddsOfSwaying = .1f;
 
-    private Animator animator;
+    protected Animator animator;
 
     private bool hasOrdered = false;
     private float movementSpeed = 0.7f;
@@ -102,7 +102,7 @@ public class Person : MonoBehaviour {
     {
         if (GetComponent<Player>())
         {
-            GameManager.instance.setVictory();
+            setVictory();
         }
         SpriteRenderer s = spriteObject.GetComponent<SpriteRenderer>();
         hasOrdered = true;
@@ -128,5 +128,11 @@ public class Person : MonoBehaviour {
         {
             back.StartMoving();
         }
+    }
+
+    public void setVictory()
+    {
+        GameObject victoryScreen = Resources.Load<GameObject>("VictoryScreen");
+        Instantiate(victoryScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
     }
 }

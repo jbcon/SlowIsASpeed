@@ -11,8 +11,18 @@ public class Player : Person {
     protected override void Update()
     {
         base.Update();
-        if (GameManager.instance.phoneDown)
+        if (GameManager.instance.phoneDown && GameManager.instance.gameStarted)
             isMoving = true;
+
+    }
+
+    public void startPhone()
+    {
+        animator.SetBool("Phone", true);
+    }
+    public void endPhone()
+    {
+        animator.SetBool("Phone", false);
     }
 
 }
