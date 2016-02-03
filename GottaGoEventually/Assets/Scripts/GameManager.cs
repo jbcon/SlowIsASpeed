@@ -46,10 +46,20 @@ public class GameManager : ScriptableObject
         gameOver = true;
     }
 
-    public void setLoss()
+    public void setLoss(string reason)
     {
         GameObject loseScreen = Resources.Load<GameObject>("GameOver");
-        Instantiate(loseScreen);//, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        Instantiate(loseScreen);
+        if (reason == "Crash")
+        {
+            GameObject crash = Resources.Load<GameObject>("Crash");
+            Instantiate(crash);
+        }
+        else if (reason == "Cut")
+        {
+            GameObject cut = Resources.Load<GameObject>("Cut");
+            Instantiate(cut);
+        }
         gameOver = true;
         phone.ActivateLowerPhone();
     }

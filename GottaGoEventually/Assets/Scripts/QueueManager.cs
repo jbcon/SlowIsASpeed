@@ -75,7 +75,7 @@ public class QueueManager : MonoBehaviour {
 
             if (waitingTime > maxWaitingTime)
             {
-                GameManager.instance.setLoss();
+                GameManager.instance.setLoss("Cut");
             }
         }
 	   
