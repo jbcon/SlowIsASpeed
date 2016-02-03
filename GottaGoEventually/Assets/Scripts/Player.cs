@@ -3,9 +3,12 @@ using System.Collections;
 
 public class Player : Person {
 
+    new Animator animator;
+
     override protected void Awake()
     {
         base.Awake();
+        animator = GetComponentInChildren<Animator>();
     }
 
     protected override void Update()

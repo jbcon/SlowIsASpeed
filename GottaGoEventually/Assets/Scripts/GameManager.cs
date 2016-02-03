@@ -65,4 +65,13 @@ public class GameManager : ScriptableObject
 
         //planeCamera = GameObject.Find("PlaneObject").GetComponent<Camera>();
 	}
+
+    public void Reset()
+    {
+        phoneActive = false;
+        phoneDown = true;
+        gameStarted = false;
+        gameOver = false;
+        MyAwake();
+    }
 }
