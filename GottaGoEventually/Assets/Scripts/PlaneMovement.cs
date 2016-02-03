@@ -10,13 +10,21 @@ public class PlaneMovement : MonoBehaviour
     public float maxZRot;
     public float maxXRot;
 
+    public float screen2Phone = 1.27f;
+
     public Camera cam;
 
     protected Vector3 ScreenToWorld(Vector3 input)
     {
         Vector3 returnVec = new Vector3();
-        returnVec.x = ((input.x / Screen.width) * widthMoveLimit * 2) - widthMoveLimit;         //offset is so 0,0 is the center of the screen
-        returnVec.y = ((input.y / Screen.height) * heightMoveLimit * 2) - heightMoveLimit;      //same tbh
+        float zDist = Mathf.Abs((transform.position - cam.transform.position).z);  //get the z distance from the camera to the plane
+
+        //float WSHalfWidth = Screen.width / screen2Phone;
+        //float WSHalfHeight = Screen.height / screen2Phone;
+
+
+        returnVec.x = (((input.x / Screen.width ) * widthMoveLimit * 2) - widthMoveLimit);         //offset is so 0,0 is the center of the screen
+        returnVec.y = (((input.y / Screen.height) * heightMoveLimit* 2) - heightMoveLimit);      //same tbh
         return returnVec;
     }
 
