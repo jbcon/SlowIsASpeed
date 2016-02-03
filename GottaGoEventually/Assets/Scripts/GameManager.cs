@@ -68,6 +68,7 @@ public class GameManager : ScriptableObject
 
     public void Reset()
     {
+        ObstacleSpawn.obstaclesSpawned = 0;
         phoneActive = false;
         phoneDown = true;
         gameStarted = false;

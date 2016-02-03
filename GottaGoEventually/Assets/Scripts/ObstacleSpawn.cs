@@ -6,49 +6,47 @@ public class ObstacleSpawn : MonoBehaviour
 {
     protected float spawnDepth = 40;
 
-    public Vector2 numOfSpawners;
-    public Vector2 spawnerStart;
-    public Vector2 posModifier;
     public GameObject obstacle;
-    public List<Transform> spawners;
+    public GameObject obstacle2;
+    public GameObject obstacle3;
 
     public float coolDown = .9f;
     public float LowestSpawnRate = .3f;
     
-    public int obstaclesSpawned { get; protected set; }
+    public static int obstaclesSpawned { get; set; }
     public Transform ER_PlaneCam;
 
 	void Start ()
     {
-        spawners = new List<Transform>();
+        //spawners = new List<Transform>();
 
-        if (numOfSpawners.x % 2 == 0)
-        {
-            spawnerStart.x = -1 * posModifier.x / 2;
-        }
+        //if (numOfSpawners.x % 2 == 0)
+        //{
+        //    spawnerStart.x = -1 * posModifier.x / 2;
+        //}
 
-        if (numOfSpawners.y % 2 == 0)
-        {
-            spawnerStart.y = -1 * posModifier.y / 2;
-        }
-
-
-        for (int i = 0; i < numOfSpawners.x; i++)
-        {
-            for (int j = 0; j < numOfSpawners.y; j++)
-            {
-                //Transform spawner = Resources.Load<Transform>("Spawner");
-                //spawner = Instantiate<Transform>(spawner);
-                //spawner.name = "Spawner x: " + i + " y: " + j;
-                //spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
-
-                //spawners.Add(spawner);
+        //if (numOfSpawners.y % 2 == 0)
+        //{
+        //    spawnerStart.y = -1 * posModifier.y / 2;
+        //}
 
 
-                //float xDist = i
-               // spawner.transform = new Vector3();
-            }
-        }
+        //for (int i = 0; i < numOfSpawners.x; i++)
+        //{
+        //    for (int j = 0; j < numOfSpawners.y; j++)
+        //    {
+        //        //Transform spawner = Resources.Load<Transform>("Spawner");
+        //        //spawner = Instantiate<Transform>(spawner);
+        //        //spawner.name = "Spawner x: " + i + " y: " + j;
+        //        //spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
+
+        //        //spawners.Add(spawner);
+
+
+        //        //float xDist = i
+        //       // spawner.transform = new Vector3();
+        //    }
+        //}
         StartCoroutine("SpawnRandom");
 
     }
@@ -58,7 +56,7 @@ public class ObstacleSpawn : MonoBehaviour
         while (true)
         {
             Spawn();
-            if (Random.Range(0, 2 + coolDown*2) == 0)
+            if (Random.Range(0, 1 + 30/obstaclesSpawned) == 0)
                 Spawn();
 
             yield return new WaitForSeconds(coolDown);
@@ -77,7 +75,17 @@ public class ObstacleSpawn : MonoBehaviour
         float randY = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
         Vector3 spawnSpot = new Vector3(randX, randY, spawnDepth);
 
-        GameObject obs = Instantiate(obstacle, spawnSpot, Quaternion.identity) as GameObject;
+
+        GameObject obs;
+        int rand = Random.Range(0, 8);
+        if ( rand == 0)
+            obs = Instantiate(obstacle2, spawnSpot, obstacle2.transform.rotation) as GameObject;
+        else if (rand == 1)
+            obs = Instantiate(obstacle3, spawnSpot, obstacle3.transform.rotation) as GameObject;
+        else
+            obs = Instantiate(obstacle, spawnSpot, obstacle.transform.rotation) as GameObject;
+
+
         obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
         obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 3;
     }
