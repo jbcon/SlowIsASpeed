@@ -6,7 +6,7 @@ public class PhoneMovementLogic : MonoBehaviour {
 
     Vector3 topLocation;
     Vector3 bottomLocation;
-    public float moveSpeed = .1f;
+    public float moveSpeed = .005f;
 
     public GameObject startText;
     public GameObject titleText;
@@ -18,7 +18,7 @@ public class PhoneMovementLogic : MonoBehaviour {
 	void Start () {
         topLocation = new Vector3(52.9f, 0f, -1f);
         bottomLocation = new Vector3(52.9f, -6.3f, -1f);
-        transform.position = bottomLocation;
+        transform.position = new Vector3(52.9f, -7f, -1f);
     }
 
     // Update is called once per frame
@@ -58,6 +58,7 @@ public class PhoneMovementLogic : MonoBehaviour {
 
     IEnumerator RaisePhone()
     {
+        GameManager.instance.player.startPhone();
         while(transform.position.y < topLocation.y)
         {
             transform.Translate(Vector3.forward * -1 * moveSpeed);
@@ -72,11 +73,11 @@ public class PhoneMovementLogic : MonoBehaviour {
             }
             yield return null;
         }
-        Debug.Break();
     }
 
     IEnumerator SlowRaisePhone()
     {
+        GameManager.instance.player.startPhone();
         while (transform.position.y < topLocation.y)
         {
             transform.Translate(Vector3.forward * -1 * moveSpeed/5);
@@ -90,6 +91,7 @@ public class PhoneMovementLogic : MonoBehaviour {
 
     IEnumerator LowerPhone()
     {
+        GameManager.instance.player.endPhone();
         while (transform.position.y > bottomLocation.y)
         {
             transform.Translate(Vector3.forward * moveSpeed);

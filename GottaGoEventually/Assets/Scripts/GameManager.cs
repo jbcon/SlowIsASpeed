@@ -5,7 +5,7 @@ public class GameManager : ScriptableObject
 {
     public Camera planeCamera;
     public Player player;
-    public Sprite victoryScreen;
+    GameObject obstacleSpawner;
 
     static private bool instantiated = false;
     static private GameManager _instance;
@@ -33,19 +33,17 @@ public class GameManager : ScriptableObject
     public void setGameStarted()
     {
         QueueManager.singleton.GameStart();
+        obstacleSpawner.GetComponent<ObstacleSpawn>().enabled = true;
         gameStarted = true;
     }
 
-    public void setVictory()
-    {
-        Instantiate(victoryScreen);
-    }
+    
 
 	void MyAwake ()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
+        obstacleSpawner = GameObject.Find("ObstacleSpawner");
 
-        victoryScreen = Resources.Load<Sprite>("Sprites/VictoryScreen");
         //planeCamera = Resources.Load<Camera>("PlaneCamera");
         //planeCamera = Instantiate<Camera>(planeCamera);
         //planeCamera.transform.position = new Vector3(0f,0f,-10f);
