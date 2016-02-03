@@ -42,7 +42,7 @@ public class GameManager : ScriptableObject
     public void setVictory()
     {
         GameObject victoryScreen = Resources.Load<GameObject>("BestDamnSandwich");
-        Instantiate(victoryScreen, new Vector3(52.9f, 0, 0), Quaternion.identity);
+        Instantiate(victoryScreen);//, new Vector3(52.9f, 0, 0), Quaternion.identity);
         gameOver = true;
     }
 
