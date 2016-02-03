@@ -83,7 +83,7 @@ public class Person : MonoBehaviour {
     public void StartMoving()
     {
 
-        StartCoroutine(WaitToMove());
+        //StartCoroutine(WaitToMove());
     }
 
     //have person shuffle left and right a bit
