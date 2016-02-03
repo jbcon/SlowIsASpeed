@@ -71,7 +71,7 @@ public class QueueManager : MonoBehaviour {
             if (GameManager.instance.phoneActive && dist > maxGoodDistance)
             {
                 waitingTime += Time.deltaTime;
-                Debug.Log(waitingTime);
+                //Debug.Log(waitingTime);
             }
 
             if (waitingTime > maxWaitingTime)
