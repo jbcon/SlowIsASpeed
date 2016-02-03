@@ -87,6 +87,6 @@ public class ObstacleSpawn : MonoBehaviour
 
 
         obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
-        obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 7f;
+        obs.GetComponent<ObstacleMove>().speed = 10 + obstaclesSpawned / 10f;
     }
 }
