@@ -19,7 +19,7 @@ public class PlaneMovement : MonoBehaviour
 
         //clamp to the edges of the screen
         input.x = Mathf.Clamp(input.x, 260f / 1153f * Screen.width, 890f / 1153f * Screen.width);
-        input.y = Mathf.Clamp(input.y, 160f / 648f * Screen.height, 490/648f * Screen.height);
+        input.y = Mathf.Clamp(input.y, 150f / 648f * Screen.height, 490/648f * Screen.height);
         returnVec.x = (((input.x / Screen.width ) * widthMoveLimit * 2) - widthMoveLimit)/ .6764f;         //offset is so 0,0 is the center of the screen
         returnVec.y = (((input.y / Screen.height) * heightMoveLimit* 2) - heightMoveLimit)/ .6764f;      //same tbh
         

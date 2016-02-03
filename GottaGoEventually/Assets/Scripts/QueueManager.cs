@@ -73,7 +73,6 @@ public class QueueManager : MonoBehaviour {
             else
             {
                 waitingTime += Time.deltaTime;
-                Debug.Log(waitingTime);
             }
 
             if (waitingTime > maxWaitingTime)

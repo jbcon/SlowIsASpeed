@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ObstacleSpawn : MonoBehaviour
 {
-    protected float spawnDepth = 40;
+    protected float spawnDepth = 60;
 
     public GameObject obstacle;
     public GameObject obstacle2;
@@ -68,7 +68,7 @@ public class ObstacleSpawn : MonoBehaviour
         obstaclesSpawned++;
 
         if (coolDown > LowestSpawnRate)
-            coolDown -= .01f;
+            coolDown -= .005f;
 
         float magic = .4f;
         float randX = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
