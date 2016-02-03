@@ -12,9 +12,10 @@ public class Death : MonoBehaviour {
 	void Update () {
 	
 	}
-
-    void OnCollisionEnter(Collision other)
+    
+    void OnTriggerEnter(Collider other)
     {
+        print("hittttttttt");
         if (other.gameObject.tag == "Obstacle")
         {
             GameManager.instance.setLoss();
