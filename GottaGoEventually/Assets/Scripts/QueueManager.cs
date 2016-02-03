@@ -12,9 +12,11 @@ public class QueueManager : MonoBehaviour {
     public Person backOfLine;
 
     // space between people
+    public float maxWaitingTime = 10f;
     public float spacing = 0.3f;
     public int numberOfPeople = 8;
     private Player player;
+    private float waitingTime = 0;
 
 	// Use this for initialization
 	void Start()
@@ -62,7 +64,24 @@ public class QueueManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        if (GameManager.instance.gameStarted)
+        {
+            if (!GameManager.instance.phoneActive)
+            {
+                waitingTime = 0;
+            }
+            else
+            {
+                waitingTime += Time.deltaTime;
+                Debug.Log(waitingTime);
+            }
+
+            if (waitingTime > maxWaitingTime)
+            {
+                GameManager.instance.setLoss();
+            }
+        }
+	   
 	}
 
     public void Reset()
