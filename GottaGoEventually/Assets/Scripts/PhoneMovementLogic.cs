@@ -98,7 +98,8 @@ public class PhoneMovementLogic : MonoBehaviour {
             if (transform.position.y < bottomLocation.y * loweredFraction)
             {
                 GameManager.instance.phoneDown = true;
-                GameManager.instance.player.isMoving = true;
+                if (GameManager.instance.gameStarted)
+                     GameManager.instance.player.isMoving = true;
             }
             if (transform.position.y < bottomLocation.y * raisedFraction)
             {
