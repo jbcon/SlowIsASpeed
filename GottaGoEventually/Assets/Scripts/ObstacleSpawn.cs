@@ -4,12 +4,16 @@ using System.Collections.Generic;
 
 public class ObstacleSpawn : MonoBehaviour
 {
-    public float spawnDepth;
+    protected float spawnDepth = 40;
+
     public Vector2 numOfSpawners;
     public Vector2 spawnerStart;
     public Vector2 posModifier;
     public GameObject obstacle;
     public List<Transform> spawners;
+
+
+    public Transform ER_PlaneCam;
 
 	void Start ()
     {
@@ -30,12 +34,14 @@ public class ObstacleSpawn : MonoBehaviour
         {
             for (int j = 0; j < numOfSpawners.y; j++)
             {
-                Transform spawner = Resources.Load<Transform>("Spawner");
-                spawner = Instantiate<Transform>(spawner);
-                spawner.name = "Spawner x: " + i + " y: " + j;
-                spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
+                //Transform spawner = Resources.Load<Transform>("Spawner");
+                //spawner = Instantiate<Transform>(spawner);
+                //spawner.name = "Spawner x: " + i + " y: " + j;
+                //spawner.position = new Vector3(spawnerStart.x + i * posModifier.x, spawnerStart.y + j * posModifier.y, 40);
 
-                spawners.Add(spawner);
+                //spawners.Add(spawner);
+
+
                 //float xDist = i
                // spawner.transform = new Vector3();
             }
@@ -48,7 +54,14 @@ public class ObstacleSpawn : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(obstacle, spawners[Random.Range(0, spawners.Count)].position, Quaternion.identity);
+            //Instantiate(obstacle, spawners[Random.Range(0, spawners.Count)].position, Quaternion.identity);
+
+            float magic = .4f;
+            float randX = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
+            float randY = Random.Range((spawnDepth + 10) * magic * -1f, (spawnDepth + 10) * magic);
+            Vector3 spawnSpot = new Vector3(randX, randY, spawnDepth);
+            GameObject obs = Instantiate(obstacle, spawnSpot, Quaternion.identity) as GameObject;
+            obs.GetComponent<ObstacleMove>().target = ER_PlaneCam;
             yield return new WaitForSeconds(1f);
         }
     }
