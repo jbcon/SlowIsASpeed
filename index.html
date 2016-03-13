@@ -1,34 +1,58 @@
-<!doctype html>
-<html lang="en-us">
+<!DOCTYPE html>
+<html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WaityLine</title>
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <script src="TemplateData/UnityProgress.js"></script>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Waityline : A game that involves standing in line.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Waityline</title>
   </head>
-  <body class="template">
-    <p class="header"><span>Unity WebGL Player | </span>WaityLine</p>
-    <div class="template-wrap clear">
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
-      <br>
-      <div class="logo"></div>
-      <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
-      <div class="title">WaityLine</div>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jbcon/WaityLine">View on GitHub</a>
+
+          <h1 id="project_title">Waityline</h1>
+          <h2 id="project_tagline">A game that involves standing in line.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jbcon/WaityLine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jbcon/WaityLine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
     </div>
-    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-    <script type='text/javascript'>
-  var Module = {
-    TOTAL_MEMORY: 268435456,
-    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
-    compatibilitycheck: null,
-    dataUrl: "Release/WebGL.data",
-    codeUrl: "Release/WebGL.js",
-    memUrl: "Release/WebGL.mem",
-  };
-</script>
-<script src="Release/UnityLoader.js"></script>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>WaityLine</p>
+
+<p>Created by:</p>
+
+<ul>
+<li>Chris Cloutier (Programming)</li>
+<li>John Conover (Programming)</li>
+<li>Spencer Johnson (Programming)</li>
+<li>Julius Lee (Art)</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Waityline maintained by <a href="https://github.com/jbcon">jbcon</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
 
   </body>
 </html>
