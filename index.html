@@ -1,14 +1,44 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WaityLine</title>
-    <style>
-    /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
-    </style>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Waityline : A game that involves standing in line.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Waityline</title>
   </head>
   <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jbcon/WaityLine">View on GitHub</a>
+
+          <h1 id="project_title">Waityline</h1>
+          <h2 id="project_tagline">A game that involves standing in line.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jbcon/WaityLine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jbcon/WaityLine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Created by:</h1>
+        <ul>
+          <li><a target="_blank" href=https://chriscloutier.weebly.com>Chris Cloutier</a></li>
+          <li><a target="_blank" href=https://johnconover.weebly.com>John Conover</a></li>
+          <li><a target="_blank" href=https://spencerjohnson714.weebly.com>Spencer Johnson</a></li>
+          <li><a>Julius Lee</a></li>
+        </ul>
+
+<!--Unity Player -->
+
     <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
     <script type='text/javascript'>
       var Module = {
@@ -21,12 +51,15 @@
       };
     </script>
     <script src="Release/UnityLoader.js"></script>
-    <h1>Created by:
-    <ul>
-      <li><a href=chriscloutier.weebly.com>Chris Cloutier</a></li>
-      <li><a href=johnconover.weebly.com>John Conover</a></li>
-      <li><a href=spencerjohnson714.weebly.com>Spencer Johnson</a></li>
-      <li><a>Julius Lee</a></li>
-    </ul>
+
+===========
+  <body>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Waityline maintained by <a href="https://github.com/jbcon">jbcon</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
   </body>
 </html>
